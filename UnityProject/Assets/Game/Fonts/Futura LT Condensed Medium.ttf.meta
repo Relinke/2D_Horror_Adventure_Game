@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 703d97df006268b42926c5d941663412
+timeCreated: 1519387905
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura LT Condensed
+  fontNames:
+  - Futura LT Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 53e2df50d4c32c6458f72ee0eb2986c1, type: 3}
+  - {fileID: 12800000, guid: 25ecbc733610f66438778e2ecee1caf5, type: 3}
+  - {fileID: 12800000, guid: 2ccbca34a2626524986eba9565b898ab, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

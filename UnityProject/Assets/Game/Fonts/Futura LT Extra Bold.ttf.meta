@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 78c96e83d6174264bb9dc4c5b661408b
+timeCreated: 1519387905
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura LT ExtraBold
+  fontNames:
+  - Futura LT ExtraBold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5b823acd45b8faa428b9fbe8ce3a4bfa, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

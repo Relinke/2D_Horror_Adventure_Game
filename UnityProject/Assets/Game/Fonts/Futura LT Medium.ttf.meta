@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: e8ba0acb64c338940b1d9b7e617c2b36
+timeCreated: 1519387905
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura LT Medium
+  fontNames:
+  - Futura LT Medium
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 992ab821cd0cdbb4aaf6ae71f3718fbf, type: 3}
+  - {fileID: 12800000, guid: 5beee555094fad341b6256600e9a9df1, type: 3}
+  - {fileID: 12800000, guid: 110a8c5d50b1e184c8265091adefe116, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

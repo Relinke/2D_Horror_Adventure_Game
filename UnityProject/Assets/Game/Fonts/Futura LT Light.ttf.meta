@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: f960cc3e69a31834e94b75a5c1060285
+timeCreated: 1519387905
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura LT Light
+  fontNames:
+  - Futura LT Light
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 57a4805847bc6754fb3cdb83c6928507, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
