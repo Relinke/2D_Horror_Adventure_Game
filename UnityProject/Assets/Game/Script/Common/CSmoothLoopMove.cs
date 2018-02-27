@@ -6,28 +6,28 @@ namespace Common
 {
     public class CSmoothLoopMove : MonoBehaviour
     {
-        public enum MoveDirectionType
+        public enum EMoveDirectionType
         {
             HORIZONTAL,
             VERTICAL
         }
-        public MoveDirectionType MoveDirection;
+        public EMoveDirectionType MoveDirection;
         public float MoveRange;
         public float Speed;
 
         private void Update()
         {
-            Vector2 pos = transform.position;
+            Vector2 pos = transform.localPosition;
             switch (MoveDirection)
             {
-                case MoveDirectionType.HORIZONTAL:
+                case EMoveDirectionType.HORIZONTAL:
                     pos.x = Mathf.Sin(Time.time * Speed) * MoveRange;
                     break;
-                case MoveDirectionType.VERTICAL:
+                case EMoveDirectionType.VERTICAL:
                     pos.y = Mathf.Sin(Time.time * Speed) * MoveRange;
                     break;
             }
-            transform.position = pos;
+            transform.localPosition = pos;
         }
     }
 }
