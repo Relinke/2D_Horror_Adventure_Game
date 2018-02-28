@@ -15,16 +15,25 @@ namespace Common
         public float MoveRange;
         public float Speed;
 
+        public float TimeOffset;
+
+        private Vector2 OriginPosition;
+
+        private void Awake()
+        {
+            OriginPosition = transform.localPosition;
+        }
+
         private void Update()
         {
             Vector2 pos = transform.localPosition;
             switch (MoveDirection)
             {
                 case EMoveDirectionType.HORIZONTAL:
-                    pos.x = Mathf.Sin(Time.time * Speed) * MoveRange;
+                    pos.x = OriginPosition.x + Mathf.Sin((Time.time + TimeOffset) * Speed) * MoveRange;
                     break;
                 case EMoveDirectionType.VERTICAL:
-                    pos.y = Mathf.Sin(Time.time * Speed) * MoveRange;
+                    pos.y = OriginPosition.y + Mathf.Sin((Time.time + TimeOffset) * Speed) * MoveRange;
                     break;
             }
             transform.localPosition = pos;

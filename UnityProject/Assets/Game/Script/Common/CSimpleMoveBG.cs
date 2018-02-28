@@ -13,7 +13,14 @@ public class CSimpleMoveBG : MonoBehaviour
         UP,
         DOWN
     }
+
+    public enum EOrderType
+    {
+        ORDERED,
+        DISORDERED
+    }
     public EMoveDirectionType MoveDirection;
+    public EOrderType OrderType;
     public List<GameObject> MoveableBGList = new List<GameObject>();
 
     public float MinX;
@@ -27,10 +34,20 @@ public class CSimpleMoveBG : MonoBehaviour
     public float MaxScaleY;
 
     public float Speed;
+    public float OrderSpace;
 
     private void Awake()
     {
+        InitList();
         InitScale();
+    }
+
+    private void InitList(){
+        if(MoveableBGList.Count == 0){
+            for(int i = 0; i < transform.childCount; ++i){
+                MoveableBGList.Add(transform.GetChild(i).gameObject);
+            }
+        }
     }
 
     private void InitScale()
@@ -53,32 +70,44 @@ public class CSimpleMoveBG : MonoBehaviour
                     {
                         ResetSingleBG(MoveableBGList[i]);
                     }
-                    pos.x += Time.deltaTime * Speed;
-                    MoveableBGList[i].transform.localPosition = pos;
+                    else
+                    {
+                        pos.x += Time.deltaTime * Speed;
+                        MoveableBGList[i].transform.localPosition = pos;
+                    }
                     break;
                 case EMoveDirectionType.LEFT:
                     if (pos.x < MinX)
                     {
                         ResetSingleBG(MoveableBGList[i]);
                     }
-                    pos.x -= Time.deltaTime * Speed;
-                    MoveableBGList[i].transform.localPosition = pos;
+                    else
+                    {
+                        pos.x -= Time.deltaTime * Speed;
+                        MoveableBGList[i].transform.localPosition = pos;
+                    }
                     break;
                 case EMoveDirectionType.UP:
                     if (pos.y > MaxY)
                     {
                         ResetSingleBG(MoveableBGList[i]);
                     }
-                    pos.y += Time.deltaTime * Speed;
-                    MoveableBGList[i].transform.localPosition = pos;
+                    else
+                    {
+                        pos.y += Time.deltaTime * Speed;
+                        MoveableBGList[i].transform.localPosition = pos;
+                    }
                     break;
                 case EMoveDirectionType.DOWN:
                     if (pos.y > MinY)
                     {
                         ResetSingleBG(MoveableBGList[i]);
                     }
-                    pos.y -= Time.deltaTime * Speed;
-                    MoveableBGList[i].transform.localPosition = pos;
+                    else
+                    {
+                        pos.y -= Time.deltaTime * Speed;
+                        MoveableBGList[i].transform.localPosition = pos;
+                    }
                     break;
             }
 
@@ -94,6 +123,47 @@ public class CSimpleMoveBG : MonoBehaviour
     }
 
     private void ResetSingleBG(GameObject target)
+    {
+        switch (OrderType)
+        {
+            case EOrderType.ORDERED:
+                ResetOrderedBG(target);
+                break;
+            case EOrderType.DISORDERED:
+                ResetDisorderedBG(target);
+                break;
+        }
+    }
+
+    private void ResetOrderedBG(GameObject target)
+    {
+        Vector2 pos = GetLastBG().transform.localPosition;
+        switch (MoveDirection)
+        {
+            case EMoveDirectionType.RIGHT:
+                pos.x -= OrderSpace;
+                target.transform.localPosition = pos;
+                target.transform.localScale = GetRandomSize();
+                break;
+            case EMoveDirectionType.LEFT:
+                pos.x += OrderSpace;
+                target.transform.localPosition = pos;
+                target.transform.localScale = GetRandomSize();
+                break;
+            case EMoveDirectionType.UP:
+                pos.y -= OrderSpace;
+                target.transform.localPosition = pos;
+                target.transform.localScale = GetRandomSize();
+                break;
+            case EMoveDirectionType.DOWN:
+                pos.y += OrderSpace;
+                target.transform.localPosition = pos;
+                target.transform.localScale = GetRandomSize();
+                break;
+        }
+    }
+
+    private void ResetDisorderedBG(GameObject target)
     {
         Vector2 pos = target.transform.localPosition;
         switch (MoveDirection)
@@ -119,6 +189,48 @@ public class CSimpleMoveBG : MonoBehaviour
                 target.transform.localScale = GetRandomSize();
                 break;
         }
+    }
 
+    private GameObject GetLastBG()
+    {
+        GameObject BG = null;
+        if (MoveableBGList.Count == 0)
+        {
+            return null;
+        }
+        BG = MoveableBGList[1];
+        for (int i = 1; i < MoveableBGList.Count; ++i)
+        {
+            Vector2 posA = BG.transform.localPosition;
+            Vector2 posB = MoveableBGList[i].transform.localPosition;
+            switch (MoveDirection)
+            {
+                case EMoveDirectionType.RIGHT:
+                    if (posA.x > posB.x)
+                    {
+                        BG = MoveableBGList[i];
+                    }
+                    break;
+                case EMoveDirectionType.LEFT:
+                    if (posA.x < posB.x)
+                    {
+                        BG = MoveableBGList[i];
+                    }
+                    break;
+                case EMoveDirectionType.UP:
+                    if (posA.y > posB.y)
+                    {
+                        BG = MoveableBGList[i];
+                    }
+                    break;
+                case EMoveDirectionType.DOWN:
+                    if (posA.y < posB.y)
+                    {
+                        BG = MoveableBGList[i];
+                    }
+                    break;
+            }
+        }
+        return BG;
     }
 }
