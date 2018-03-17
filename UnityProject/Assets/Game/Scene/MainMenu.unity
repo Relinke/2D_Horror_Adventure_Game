@@ -423,8 +423,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 473655830}
-  - component: {fileID: 473655831}
   - component: {fileID: 473655832}
+  - component: {fileID: 473655831}
   m_Layer: 0
   m_Name: Wave
   m_TagString: Untagged
@@ -458,22 +458,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 473655829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512a8a8b256e6054bbdd71ce3c8634e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 20a37fed44fc72f4e9c57d6b989652be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: 0
-  OrderType: 0
-  MoveableBGList: []
-  MinX: 10.24
-  MaxX: 20.48
-  MinY: 0
-  MaxY: 0
-  MinScaleX: 1.6
-  MaxScaleX: 1.6
-  MinScaleY: 1.6
-  MaxScaleY: 1.6
-  Speed: 1
-  OrderSpace: 10.24
+  MoveDirection: 1
+  LeftBorderX: -20.48
+  RightBorderX: 20.48
+  MoveSpeed: 1
 --- !u!114 &473655832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,22 +701,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 742148273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512a8a8b256e6054bbdd71ce3c8634e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7417f80c03e5f4d42a90ed9a2445ad80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: 1
-  OrderType: 1
-  MoveableBGList: []
-  MinX: -16
-  MaxX: 16
-  MinY: 0.1
-  MaxY: 4
-  MinScaleX: 0.5
-  MaxScaleX: 1
-  MinScaleY: 0.35
-  MaxScaleY: 0.5
-  Speed: 0.5
-  OrderSpace: 0
+  MoveDirection: 0
+  LeftBorderX: -16
+  RightBorderX: 16
+  MoveSpeed: 1
+  MaxScale: {x: 1, y: 0.5}
+  MinScale: {x: 0.5, y: 0.3}
+  MaxY: 3.7
+  MinY: 0.75
 --- !u!1 &941824051
 GameObject:
   m_ObjectHideFlags: 0
