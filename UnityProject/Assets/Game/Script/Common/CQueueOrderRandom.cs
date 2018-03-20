@@ -17,14 +17,28 @@ namespace Common
 
         protected override void DequeueCrossOrder(SpriteRenderer SR)
         {
-            RandomSizeAndPosition(SR);
             base.DequeueCrossOrder(SR);
+            RandomSizeAndPosition(SR);
+            ResetPosition(SR);
         }
 
         protected virtual void RandomSizeAndPosition(SpriteRenderer SR)
         {
             SR.transform.localScale = new Vector2(Random.Range(MinScale.x, MaxScale.x), Random.Range(MinScale.y, MaxScale.y));
             SR.transform.localPosition = new Vector2(SR.transform.localPosition.x, Random.Range(MinY, MaxY));
+        }
+
+        protected virtual void ResetPosition(SpriteRenderer SR)
+        {
+            switch (MoveDirection)
+            {
+                case EDirection.LEFT:
+                    SR.transform.position = new Vector2(RightBorder, SR.transform.position.y);
+                    break;
+                case EDirection.RIGHT:
+                    SR.transform.position = new Vector2(LeftBorder, SR.transform.position.y);
+                    break;
+            }
         }
     }
 }

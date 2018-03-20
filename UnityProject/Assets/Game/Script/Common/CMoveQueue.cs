@@ -15,8 +15,8 @@ namespace Common
         }
 
         public EDirection MoveDirection;
-        public float LeftBorderX;
-        public float RightBorderX;
+        public float LeftBorder;
+        public float RightBorder;
 
         public float MoveSpeed;
 

@@ -18,13 +18,13 @@ namespace Common
                 switch (MoveDirection)
                 {
                     case EDirection.LEFT:
-                        if (SR.transform.position.x <= LeftBorderX)
+                        if (SR.transform.position.x <= LeftBorder)
                         {
                             HasCrossBorder = true;
                         }
                         break;
                     case EDirection.RIGHT:
-                        if (SR.transform.position.x >= RightBorderX)
+                        if (SR.transform.position.x >= RightBorder)
                         {
                             HasCrossBorder = true;
                         }
@@ -43,13 +43,13 @@ namespace Common
             switch (MoveDirection)
             {
                 case EDirection.LEFT:
-                    if (SR.transform.position.x <= LeftBorderX)
+                    if (SR.transform.position.x <= LeftBorder)
                     {
                         MoveDir = -1;
                     }
                     break;
                 case EDirection.RIGHT:
-                    if (SR.transform.position.x >= RightBorderX)
+                    if (SR.transform.position.x >= RightBorder)
                     {
                         MoveDir = 1;
                     }
