@@ -6,8 +6,13 @@ using UnityEngine;
 /// </summary>
 public class MenuBottle : MonoBehaviour
 {
+    [SerializeField]
+    private Animator _PaperMenuAnimator;
+    [SerializeField]
+    private string _PaperAppearAnimName;
     private void OnMouseDown()
     {
-        
+        _PaperMenuAnimator.Play(_PaperAppearAnimName);
+        enabled = false;
     }
 }
